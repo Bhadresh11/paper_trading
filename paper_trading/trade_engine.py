@@ -1,131 +1,161 @@
 # trade_engine.py
-from datetime import datetime
-import pytz
-
-local_tz = pytz.timezone("Asia/Phnom_Penh")
+import uuid
 
 class TradeEngine:
-    def __init__(self, start_balance=100000.0, qty=1, stop_loss_points=20.0, trail_point=1.0):
-        self.balance = float(start_balance)
-        self.qty = float(qty)
-        self.stop_loss_points = float(stop_loss_points)
-        self.trail_point = float(trail_point)
-        self.active = None  # active trade dict or None
-        self.closed_trades = []  # list of trade dicts
+    def __init__(self, qty=1.0, stop_loss_points=20.0, trail_point=1.0):
+        """
+        qty: trade quantity
+        stop_loss_points: initial SL distance from entry
+        trail_point: minimum move to shift trailing SL
+        """
+        self.qty = qty
+        self.stop_loss_points = stop_loss_points
+        self.trail_point = trail_point
+        self.active_trade = None
+        self.trade_history = []
 
-   
-    def try_entry(self, price, last_swing_high, last_swing_low):
-        if self.active is not None:
+    # -----------------------------------------------------------
+    # Entry Condition
+    # -----------------------------------------------------------
+    def try_entry(self, price, last_swing_high=None, last_swing_low=None):
+        """
+        Logic for breakout entry
+        """
+        direction = None
+
+        if last_swing_high and price > last_swing_high:
+            direction = "buy"
+
+        elif last_swing_low and price < last_swing_low:
+            direction = "sell"
+
+        if direction is None:
             return None
 
-        # --- UPSIDE BREAKOUT ---
-        if last_swing_high is not None and price > last_swing_high:
-            entry_price = price
-            stop_loss = entry_price - self.stop_loss_points
+        trade_id = str(uuid.uuid4())[:8]
+        stop_loss = price - self.stop_loss_points if direction == "buy" else price + self.stop_loss_points
 
-            trade = {
-                "direction": "LONG",
-                "entry_price": entry_price,
-                "stop_loss": stop_loss,
-                "trail_price": entry_price,
-                "qty": self.qty,
-                "entry_time_local": datetime.now(local_tz).strftime("%Y-%m-%d %H:%M:%S")
+        self.active_trade = {
+            "trade_id": trade_id,
+            "direction": direction,
+            "entry_price": price,
+            "stop_loss": stop_loss,
+            "trail_price": stop_loss,
+            "qty": self.qty
+        }
+
+        print(f"⚡ NEW TRADE OPENED ⚡ | Side: {direction} | Entry: {price:.2f} | SL: {stop_loss:.2f}")
+        return self.active_trade.copy()
+
+    # -----------------------------------------------------------
+    # Trailing Stop + Check SL Hit
+    # -----------------------------------------------------------
+    def update_active(self, current_price):
+        if self.active_trade is None:
+            return None
+
+        tr = self.active_trade
+        direction = tr["direction"]
+        entry = tr["entry_price"]
+        sl = tr["stop_loss"]
+        tsl = tr["trail_price"]
+
+        tsl_updated = False
+
+        # ---------------- BUY ----------------
+        if direction == "buy":
+
+            # Move TSL if price moves up at least trail_point
+            if current_price - tsl >= self.trail_point:
+                new_tsl = current_price - self.stop_loss_points
+
+                # Do not move TSL above entry+SL zone
+                new_tsl = min(new_tsl, entry + self.stop_loss_points)
+
+                tr["trail_price"] = new_tsl
+                tr["stop_loss"] = new_tsl
+                tsl_updated = True
+
+            # Check SL hit
+            if current_price <= sl:
+                return self.close_trade(current_price)
+
+        # ---------------- SELL ----------------
+        elif direction == "sell":
+
+            if tsl - current_price >= self.trail_point:
+                new_tsl = current_price + self.stop_loss_points
+
+                # Do not move TSL below entry-SL zone
+                new_tsl = max(new_tsl, entry - self.stop_loss_points)
+
+                tr["trail_price"] = new_tsl
+                tr["stop_loss"] = new_tsl
+                tsl_updated = True
+
+            if current_price >= sl:
+                return self.close_trade(current_price)
+
+        if tsl_updated:
+            return {
+                "tsl_update": True,
+                "trade": tr.copy(),
+                "trail": tr["trail_price"],
+                "stop_loss": tr["stop_loss"]
             }
-
-            print(
-                f"[ENTRY-UP] BREAKOUT ABOVE {last_swing_high} → BUY\n"
-                f"  Entry: {entry_price}\n"
-                f"  SL:    {stop_loss}\n"
-                f"  Qty:   {self.qty}\n"
-                f"  Trail: {entry_price}"
-            )
-
-            self.active = trade
-            return trade
-
-        # --- DOWNSIDE BREAKOUT ---
-        if last_swing_low is not None and price < last_swing_low:
-            entry_price = price
-            stop_loss = entry_price + self.stop_loss_points
-
-            trade = {
-                "direction": "SHORT",
-                "entry_price": entry_price,
-                "stop_loss": stop_loss,
-                "trail_price": entry_price,
-                "qty": self.qty,
-                "entry_time_local": datetime.now(local_tz).strftime("%Y-%m-%d %H:%M:%S")
-            }
-
-            print(
-                f"[ENTRY-DOWN] BREAKOUT BELOW {last_swing_low} → SELL\n"
-                f"  Entry: {entry_price}\n"
-                f"  SL:    {stop_loss}\n"
-                f"  Qty:   {self.qty}\n"
-                f"  Trail: {entry_price}"
-            )
-
-            self.active = trade
-            return trade
 
         return None
 
-    def update_active(self, price):
-        """Update trailing stop; check for SL hit. Returns closed trade dict if closed else None."""
-        if self.active is None:
+    # -----------------------------------------------------------
+    # Close Trade
+    # -----------------------------------------------------------
+    def close_trade(self, exit_price):
+        if self.active_trade is None:
             return None
 
-        direction = self.active["direction"]
-        entry = self.active["entry_price"]
-        sl = self.active["stop_loss"]
-        trail = self.active["trail_price"]
+        tr = self.active_trade
+        direction = tr["direction"]
+        entry = tr["entry_price"]
+        qty = tr["qty"]
 
-        # move trailing if price moves in favor
-        if direction == "LONG":
-            if price - trail >= self.trail_point:
-                # move SL up by trail_point
-                self.active["stop_loss"] += self.trail_point
-                self.active["trail_price"] = price
-        else:  # SHORT
-            if trail - price >= self.trail_point:
-                self.active["stop_loss"] -= self.trail_point
-                self.active["trail_price"] = price
+        # Profit Calculation
+        profit = (exit_price - entry) * qty if direction == "buy" else (entry - exit_price) * qty
 
-        # check SL hit
-        if direction == "LONG" and price <= self.active["stop_loss"]:
-            profit = (price - entry) * self.qty
-            self.balance += profit
-            self.active.update({
-                "exit_price": price,
-                "profit": profit,
-                "exit_time_local": datetime.now(local_tz).strftime("%Y-%m-%d %H:%M:%S")
-            })
-            closed = self.active
-            self.closed_trades.append(closed)
-            self.active = None
-            return closed
+        # Balance Calculation
+        previous_balance = 100000 if not self.trade_history else self.trade_history[-1]["balance_after"]
+        new_balance = previous_balance + profit
 
-        if direction == "SHORT" and price >= self.active["stop_loss"]:
-            profit = (entry - price) * self.qty
-            self.balance += profit
-            self.active.update({
-                "exit_price": price,
-                "profit": profit,
-                "exit_time_local": datetime.now(local_tz).strftime("%Y-%m-%d %H:%M:%S")
-            })
-            closed = self.active
-            self.closed_trades.append(closed)
-            self.active = None
-            return closed
+        closed_trade = {
+            "trade_id": tr["trade_id"],
+            "direction": direction,
+            "entry_price": entry,
+            "exit_price": exit_price,
+            "profit": round(profit, 2),
+            "balance_after": round(new_balance, 2)
+        }
 
-        return None
+        print(f"📌 TRADE CLOSED 💰 | Side: {direction} | Entry: {entry:.2f} | Exit: {exit_price:.2f} | "
+              f"P/L: {profit:.2f} | Balance: {new_balance:.2f}")
 
+        self.trade_history.append(closed_trade)
+        self.active_trade = None
+
+        return closed_trade
+
+    # -----------------------------------------------------------
+    # Stats For Excel
+    # -----------------------------------------------------------
     def get_stats(self):
-        total = len(self.closed_trades)
-        if total == 0:
-            return {"total_trades": 0, "win_rate": 0.0, "avg_profit": 0.0, "net_profit": 0.0}
-        wins = sum(1 for t in self.closed_trades if t["profit"] > 0)
-        net = sum(t["profit"] for t in self.closed_trades)
-        avg = net / total
-        win_rate = wins / total * 100.0
-        return {"total_trades": total, "win_rate": win_rate, "avg_profit": avg, "net_profit": net}
+        wins = [t for t in self.trade_history if t["profit"] > 0]
+        losses = [t for t in self.trade_history if t["profit"] <= 0]
+
+        win_rate = (len(wins) / len(self.trade_history) * 100) if self.trade_history else 0
+        avg_profit = sum(t["profit"] for t in wins) / len(wins) if wins else 0
+        avg_loss = sum(t["profit"] for t in losses) / len(losses) if losses else 0
+
+        return {
+            "total_trades": len(self.trade_history),
+            "win_rate": round(win_rate, 2),
+            "avg_profit": round(avg_profit, 2),
+            "avg_loss": round(avg_loss, 2)
+        }
