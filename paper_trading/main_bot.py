@@ -8,6 +8,7 @@ import pandas as pd
 import requests
 from data_manager import ExcelManager
 from trade_engine import TradeEngine
+from swingtrend import Swing
 
 # ------------------------- CONFIG -------------------------
 SYMBOL = "ETHUSDT"
@@ -22,6 +23,14 @@ excel_mgr = ExcelManager(SYMBOL)
 
 # ------------------------- Memory -------------------------
 candles = []
+
+# Suppose you have a DataFrame `df` with columns: ['open','high','low','close','volume', ...]
+swing = Swing(
+    retrace_threshold_pct=2,     # e.g. 5% retrace to consider a new swing
+    sideways_threshold=20,       # how many bars to call it "sideways"
+    minimum_bar_count=40,        # minimum bars before confirming
+)
+
 
 # ------------------------- Historical candles -------------------------
 def fetch_historical_binance(symbol, interval, limit=500):
@@ -55,6 +64,32 @@ if historical:
     for c in historical:
         excel_mgr.save_candle(c)
     print(f"[MAIN] {len(historical)} historical candles loaded and saved.")
+    # Run on your data
+        
+    # Convert historical candles to DataFrame
+    df_historical = pd.DataFrame(historical)
+
+    # Keep only required columns
+    df_ohlcv = df_historical[['open', 'high', 'low', 'close', 'volume']].copy()
+
+    # Force numeric conversion
+    for col in df_ohlcv.columns:
+        df_ohlcv[col] = pd.to_numeric(df_ohlcv[col], errors='coerce')
+
+    # Drop any rows that failed conversion
+    df_ohlcv.dropna(inplace=True)
+
+    # Ensure all types are float
+    df_ohlcv = df_ohlcv.astype(float)
+
+    # Run SwingTrend
+    swing.run(sym=SYMBOL, df=df_ohlcv)
+
+    print("Trend:", swing.trend)
+    print("Last confirmed swing high (price):", swing.sph)
+    print("Last confirmed swing low:", swing.spl)
+    print("Reversal (CoC):", swing.coc)
+
 else:
     print("[MAIN] No historical candles found.")
 
@@ -90,8 +125,8 @@ print(f"  ➤ Swing Low  = {swing_low} | UTC: {swing_low_utc} | Local: {swing_lo
 
 # Save initial swings to Excel
 excel_mgr.save_swing(
-    str(swing_high_utc), str(swing_high_local), swing_high,
-    str(swing_low_utc), str(swing_low_local), swing_low
+    str(swing_high_utc), str(swing_high_local), float(swing_high),
+    str(swing_low_utc), str(swing_low_local), float(swing_low)
 )
 
 # ------------------------- Trade Engine -------------------------

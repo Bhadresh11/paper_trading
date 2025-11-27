@@ -74,8 +74,9 @@ class ExcelManager:
             self.swings_df = pd.DataFrame(columns=new_row.keys())
 
         self.swings_df = pd.concat([self.swings_df, pd.DataFrame([new_row])], ignore_index=True)
-        self._save_to_excel("Swings", self.swings_df)
-
+        # self._save_to_excel("Swings", self.swings_df)
+        df = pd.DataFrame(self.swings_df)
+        self._append_sheet("OrdersX", df)
 
     def save_order(self, o):
         df = pd.DataFrame([o])
