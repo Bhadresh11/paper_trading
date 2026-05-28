@@ -1,0 +1,197 @@
+INFO:2024-08-01 11:32:42,751:MainThread:Dhan.py  started system
+INFO:2024-08-01 11:32:42,752:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 11:42:55,464:MainThread:Dhan.py  started system
+INFO:2024-08-01 11:42:55,464:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-01 11:43:51,493:MainThread:Exception in getting LTP as 'Yes Bank'
+Traceback (most recent call last):
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_tsl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\tradehull\Dhan codebase\Dhan_Tradehull.py", line 307, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'Yes Bank'
+INFO:2024-08-01 11:55:05,370:MainThread:Dhan.py  started system
+INFO:2024-08-01 11:55:05,370:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-01 11:55:57,041:MainThread:Exception in getting LTP as 'Yes Bank'
+Traceback (most recent call last):
+  File "E:\tradehull\Dhan codebase\Dhan_Tradehull.py", line 307, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'Yes Bank'
+INFO:2024-08-01 11:56:36,127:MainThread:Dhan.py  started system
+INFO:2024-08-01 11:56:36,127:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 11:57:54,319:MainThread:Dhan.py  started system
+INFO:2024-08-01 11:57:54,320:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-01 11:57:59,346:MainThread:Exception in getting LTP as 'Yes Bank'
+Traceback (most recent call last):
+  File "E:\tradehull\Dhan codebase\Dhan_Tradehull.py", line 308, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'Yes Bank'
+ERROR:2024-08-01 11:58:12,929:MainThread:Exception in getting LTP as 'Yes Bank'
+Traceback (most recent call last):
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\tradehull\Dhan codebase\Dhan_Tradehull.py", line 308, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'Yes Bank'
+INFO:2024-08-01 12:02:27,943:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:02:27,943:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:06:12,602:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:06:12,603:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:06:44,584:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:06:44,584:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-01 12:06:50,103:MainThread:Exception in getting LTP as 'YESBANK'
+Traceback (most recent call last):
+  File "E:\tradehull\Dhan codebase\Dhan_Tradehull.py", line 313, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'YESBANK'
+ERROR:2024-08-01 12:08:53,772:MainThread:Exception in getting LTP as 'YESBANK'
+Traceback (most recent call last):
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\tradehull\Dhan codebase\Dhan_Tradehull.py", line 313, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'YESBANK'
+INFO:2024-08-01 12:09:53,995:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:09:53,995:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:10:15,626:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:10:15,627:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:10:44,967:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:10:44,967:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:11:39,409:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:11:39,410:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:12:27,375:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:12:27,375:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:13:34,266:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:13:34,266:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:15:37,671:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:15:37,672:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:18:27,379:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:18:27,380:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:19:56,028:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:19:56,028:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:23:47,093:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:23:47,096:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:29:32,836:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:29:32,838:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 12:54:00,526:MainThread:Dhan.py  started system
+INFO:2024-08-01 12:54:00,527:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 17:07:25,720:MainThread:Dhan.py  started system
+INFO:2024-08-01 17:07:25,720:MainThread:STARTED THE PROGRAM
+INFO:2024-08-01 17:08:28,106:MainThread:Dhan.py  started system
+INFO:2024-08-01 17:08:28,106:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-01 17:36:36,675:MainThread:Got exception in place_order as single positional indexer is out-of-bounds
+Traceback (most recent call last):
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_orderid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\tradehull\Dhan codebase\Dhan_Tradehull.py", line 125, in order_placement
+    security_id = self.instrument_df[((self.instrument_df['SEM_TRADING_SYMBOL']==tradingsymbol)|(self.instrument_df['SEM_CUSTOM_SYMBOL']==tradingsymbol))&(self.instrument_df['SEM_EXM_EXCH_ID']==instrument_exchange[exchange])].iloc[-1]['SEM_SMST_SECURITY_ID']
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1656, in _getitem_axis
+    self._validate_integer(key, axis)
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1589, in _validate_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
+ERROR:2024-08-01 17:37:11,313:MainThread:Got exception in place_order as single positional indexer is out-of-bounds
+Traceback (most recent call last):
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_orderid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\tradehull\Dhan codebase\Dhan_Tradehull.py", line 125, in order_placement
+    security_id = self.instrument_df[((self.instrument_df['SEM_TRADING_SYMBOL']==tradingsymbol)|(self.instrument_df['SEM_CUSTOM_SYMBOL']==tradingsymbol))&(self.instrument_df['SEM_EXM_EXCH_ID']==instrument_exchange[exchange])].iloc[-1]['SEM_SMST_SECURITY_ID']
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1656, in _getitem_axis
+    self._validate_integer(key, axis)
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1589, in _validate_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
+ERROR:2024-08-01 17:37:23,974:MainThread:Got exception in place_order as single positional indexer is out-of-bounds
+Traceback (most recent call last):
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_orderid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\tradehull\Dhan codebase\Dhan_Tradehull.py", line 125, in order_placement
+    security_id = self.instrument_df[((self.instrument_df['SEM_TRADING_SYMBOL']==tradingsymbol)|(self.instrument_df['SEM_CUSTOM_SYMBOL']==tradingsymbol))&(self.instrument_df['SEM_EXM_EXCH_ID']==instrument_exchange[exchange])].iloc[-1]['SEM_SMST_SECURITY_ID']
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1656, in _getitem_axis
+    self._validate_integer(key, axis)
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1589, in _validate_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
+ERROR:2024-08-01 17:37:30,839:MainThread:Got exception in place_order as single positional indexer is out-of-bounds
+Traceback (most recent call last):
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_orderid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\tradehull\Dhan codebase\Dhan_Tradehull.py", line 125, in order_placement
+    security_id = self.instrument_df[((self.instrument_df['SEM_TRADING_SYMBOL']==tradingsymbol)|(self.instrument_df['SEM_CUSTOM_SYMBOL']==tradingsymbol))&(self.instrument_df['SEM_EXM_EXCH_ID']==instrument_exchange[exchange])].iloc[-1]['SEM_SMST_SECURITY_ID']
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1656, in _getitem_axis
+    self._validate_integer(key, axis)
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1589, in _validate_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
+ERROR:2024-08-01 17:40:32,625:MainThread:Got exception in place_order as single positional indexer is out-of-bounds
+Traceback (most recent call last):
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_orderid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\tradehull\Dhan codebase\Dhan_Tradehull.py", line 125, in order_placement
+    security_id = self.instrument_df[((self.instrument_df['SEM_TRADING_SYMBOL']==tradingsymbol)|(self.instrument_df['SEM_CUSTOM_SYMBOL']==tradingsymbol))&(self.instrument_df['SEM_EXM_EXCH_ID']==instrument_exchange[exchange])].iloc[-1]['SEM_SMST_SECURITY_ID']
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1656, in _getitem_axis
+    self._validate_integer(key, axis)
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1589, in _validate_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
+ERROR:2024-08-01 17:40:34,348:MainThread:Got exception in place_order as string indices must be integers
+Traceback (most recent call last):
+  File "C:\Users\SATHISH\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_orderid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\tradehull\Dhan codebase\Dhan_Tradehull.py", line 132, in order_placement
+    orderid = order["data"]["orderId"]
+TypeError: string indices must be integers

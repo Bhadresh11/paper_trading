@@ -1,0 +1,72 @@
+INFO:2024-08-06 09:51:18,876:MainThread:Dhan.py  started system
+INFO:2024-08-06 09:51:18,876:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-06 09:53:11,000:MainThread:Exception in getting LTP as 'NIFTY SML100 FREE'
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_live_pnl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 308, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'NIFTY SML100 FREE'
+ERROR:2024-08-06 09:53:18,095:MainThread:Exception in getting LTP as 'NIFTY SML100 FREE'
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_live_pnl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 308, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'NIFTY SML100 FREE'
+INFO:2024-08-06 10:12:17,390:MainThread:Dhan.py  started system
+INFO:2024-08-06 10:12:17,390:MainThread:STARTED THE PROGRAM
+INFO:2024-08-06 10:15:54,397:MainThread:Dhan.py  started system
+INFO:2024-08-06 10:15:54,397:MainThread:STARTED THE PROGRAM
+INFO:2024-08-06 11:40:41,517:MainThread:Dhan.py  started system
+INFO:2024-08-06 11:40:41,517:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-06 11:41:17,681:MainThread:Exception in getting LTP as 'NIFTY-Aug2024-24450-CE'
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_ltp1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 308, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'NIFTY-Aug2024-24450-CE'
+INFO:2024-08-06 23:17:32,588:MainThread:Dhan.py  started system
+INFO:2024-08-06 23:17:32,588:MainThread:STARTED THE PROGRAM
+INFO:2024-08-06 23:17:43,527:MainThread:Dhan.py  started system
+INFO:2024-08-06 23:17:43,527:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-06 23:18:52,095:MainThread:Exception in Getting OHLC data as 'NSE_FNO'
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_tsl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 243, in get_intraday_data
+    exchangeSegment = script_exchange[exchange]
+KeyError: 'NSE_FNO'
+ERROR:2024-08-06 23:19:04,963:MainThread:Exception in Getting OHLC data as 'IDX_I'
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_tsl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 243, in get_intraday_data
+    exchangeSegment = script_exchange[exchange]
+KeyError: 'IDX_I'

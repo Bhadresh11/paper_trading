@@ -1,0 +1,10 @@
+dhanhq
+pandas
+xlwings
+requests
+pdbpp
+os-sys
+jsonlib
+pprintpp
+logging
+typing

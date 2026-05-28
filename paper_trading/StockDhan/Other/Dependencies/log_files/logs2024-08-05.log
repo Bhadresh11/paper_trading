@@ -1,0 +1,186 @@
+INFO:2024-08-05 11:48:01,164:MainThread:Dhan.py  started system
+INFO:2024-08-05 11:48:01,164:MainThread:STARTED THE PROGRAM
+INFO:2024-08-05 11:54:50,697:MainThread:Dhan.py  started system
+INFO:2024-08-05 11:54:50,698:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-05 11:56:48,788:MainThread:Got exception in place_order as single positional indexer is out-of-bounds
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_orderid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\Session 2\Dhan codebase\Dhan codebase\Dhan_Tradehull.py", line 125, in order_placement
+    security_id = self.instrument_df[((self.instrument_df['SEM_TRADING_SYMBOL']==tradingsymbol)|(self.instrument_df['SEM_CUSTOM_SYMBOL']==tradingsymbol))&(self.instrument_df['SEM_EXM_EXCH_ID']==instrument_exchange[exchange])].iloc[-1]['SEM_SMST_SECURITY_ID']
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 967, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1520, in _getitem_axis
+    self._validate_integer(key, axis)
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\indexing.py", line 1452, in _validate_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
+INFO:2024-08-05 12:06:00,528:MainThread:Dhan.py  started system
+INFO:2024-08-05 12:06:00,528:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-05 12:08:00,104:MainThread:Exception in Getting OHLC data as DataFrame constructor not properly called!
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_data'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\Session 2\Dhan codebase\Dhan codebase\Dhan_Tradehull.py", line 215, in get_historical_data
+    df = pd.DataFrame(ohlc['data'])
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\frame.py", line 756, in __init__
+    raise ValueError("DataFrame constructor not properly called!")
+ValueError: DataFrame constructor not properly called!
+INFO:2024-08-05 12:08:20,038:MainThread:Dhan.py  started system
+INFO:2024-08-05 12:08:20,038:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-05 12:08:24,318:MainThread:Exception in Getting OHLC data as DataFrame constructor not properly called!
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_data'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\Session 2\Dhan codebase\Dhan codebase\Dhan_Tradehull.py", line 215, in get_historical_data
+    df = pd.DataFrame(ohlc['data'])
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\frame.py", line 756, in __init__
+    raise ValueError("DataFrame constructor not properly called!")
+ValueError: DataFrame constructor not properly called!
+ERROR:2024-08-05 12:08:29,698:MainThread:Exception in Getting OHLC data as DataFrame constructor not properly called!
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_data'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\Session 2\Dhan codebase\Dhan codebase\Dhan_Tradehull.py", line 215, in get_historical_data
+    df = pd.DataFrame(ohlc['data'])
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\site-packages\pandas\core\frame.py", line 756, in __init__
+    raise ValueError("DataFrame constructor not properly called!")
+ValueError: DataFrame constructor not properly called!
+INFO:2024-08-05 12:09:15,294:MainThread:Dhan.py  started system
+INFO:2024-08-05 12:09:15,294:MainThread:STARTED THE PROGRAM
+INFO:2024-08-05 12:17:05,822:MainThread:Dhan.py  started system
+INFO:2024-08-05 12:17:05,822:MainThread:STARTED THE PROGRAM
+INFO:2024-08-05 12:17:28,835:MainThread:Dhan.py  started system
+INFO:2024-08-05 12:17:28,835:MainThread:STARTED THE PROGRAM
+INFO:2024-08-05 12:21:50,854:MainThread:Dhan.py  started system
+INFO:2024-08-05 12:21:50,854:MainThread:STARTED THE PROGRAM
+INFO:2024-08-05 15:29:09,921:MainThread:Dhan.py  started system
+INFO:2024-08-05 15:29:09,921:MainThread:STARTED THE PROGRAM
+INFO:2024-08-05 15:31:06,968:MainThread:Dhan.py  started system
+INFO:2024-08-05 15:31:06,968:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-05 15:31:14,530:MainThread:Exception in getting LTP as 'BANKNIFTY-Aug2024-51600-CE'
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_ltp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 308, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'BANKNIFTY-Aug2024-51600-CE'
+INFO:2024-08-05 15:31:42,121:MainThread:Dhan.py  started system
+INFO:2024-08-05 15:31:42,121:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-05 15:33:15,358:MainThread:Exception in getting LTP as 'YESBANK'
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_live_pnl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 308, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'YESBANK'
+ERROR:2024-08-05 15:33:15,405:MainThread:Exception in getting LTP as 'NIFTY SML100 FREE'
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_live_pnl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 308, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'NIFTY SML100 FREE'
+INFO:2024-08-05 18:26:38,435:MainThread:Dhan.py  started system
+INFO:2024-08-05 18:26:38,435:MainThread:STARTED THE PROGRAM
+INFO:2024-08-05 18:36:44,602:MainThread:Dhan.py  started system
+INFO:2024-08-05 18:36:44,602:MainThread:STARTED THE PROGRAM
+INFO:2024-08-05 18:38:52,502:MainThread:Dhan.py  started system
+INFO:2024-08-05 18:38:52,502:MainThread:STARTED THE PROGRAM
+ERROR:2024-08-05 18:58:13,370:MainThread:Got exception in place_order as string indices must be integers
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_orderid1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 132, in order_placement
+    orderid = order["data"]["orderId"]
+TypeError: string indices must be integers
+ERROR:2024-08-05 18:58:22,381:MainThread:Got exception in place_order as string indices must be integers
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_orderid1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 132, in order_placement
+    orderid = order["data"]["orderId"]
+TypeError: string indices must be integers
+ERROR:2024-08-05 18:58:25,972:MainThread:Got exception in place_order as string indices must be integers
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_orderid2'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 132, in order_placement
+    orderid = order["data"]["orderId"]
+TypeError: string indices must be integers
+ERROR:2024-08-05 18:58:30,490:MainThread:Got exception in place_order as string indices must be integers
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_orderid3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 132, in order_placement
+    orderid = order["data"]["orderId"]
+TypeError: string indices must be integers
+ERROR:2024-08-05 18:59:51,437:MainThread:Exception in getting LTP as 'NIFTY SML100 FREE'
+Traceback (most recent call last):
+  File "C:\Users\imran\AppData\Local\Programs\Python\Python38\lib\cmd.py", line 214, in onecmd
+    func = getattr(self, 'do_' + cmd)
+AttributeError: 'Pdb' object has no attribute 'do_live_pnl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\imran\Desktop\Dhan\3. Session3 - Codebase\Dhan codebase\Dhan_Tradehull.py", line 308, in get_ltp
+    return data.to_dict()[name[0]]
+KeyError: 'NIFTY SML100 FREE'
+INFO:2024-08-05 19:06:40,514:MainThread:Dhan.py  started system
+INFO:2024-08-05 19:06:40,515:MainThread:STARTED THE PROGRAM

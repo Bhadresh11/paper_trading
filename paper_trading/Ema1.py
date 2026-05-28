@@ -15,7 +15,6 @@ stop_loss_pct = 0.02
 target_pct = 0.035
 capital = 100000.0
 risk_per_trade_pct = 0.01
-excel_file = "EMA_9_21_BTC_Algo_confirm_open.xlsx"
 ts = datetime.now().strftime("%Y%m%d_%H%M%S")
 excel_file = f"excel_data/{symbol}_{ts}.xlsx"
 
